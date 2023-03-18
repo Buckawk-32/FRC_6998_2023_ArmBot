@@ -5,12 +5,18 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.PathConstraints;
+import com.pathplanner.lib.PathPlanner;
+import com.pathplanner.lib.PathPlannerTrajectory;
+import com.pathplanner.lib.auto.PIDConstants;
+import com.pathplanner.lib.auto.SwerveAutoBuilder;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.commands.AutoBalanceCommand;
 import frc.robot.commands.SwerveDriveCommand;
 import frc.robot.subsystems.SwerveSubsystem;
 
@@ -25,9 +31,21 @@ public class RobotContainer
 {
 
     public final XboxController Driver_controller = new XboxController(0);
-    public final XboxController Operator_controller = new XboxController(1);
 
     public SwerveSubsystem swerveSubsystem = SwerveSubsystem.getInstance();
+
+    public PathPlannerTrajectory trajectory = PathPlanner.loadPath("New Path", new PathConstraints(Constants.CHASSIS_MAX_SPEED_METERS_PER_SEC, Constants.CHASSIS_MAX_ACCEL_METERS_PER_SEC));
+    private final SwerveAutoBuilder swerveAutoBuilder = new SwerveAutoBuilder(
+            swerveSubsystem::GetPose,
+            swerveSubsystem::ResetPose,
+            swerveSubsystem.SWERVE_DRIVE_KINEMATICS,
+            new PIDConstants(1, 0, 0),
+            new PIDConstants(0.1, 0, 0),
+            swerveSubsystem::setModulesStates,
+            null,
+            true,
+            swerveSubsystem
+    );
     // The robot's subsystems and commands are defined here...
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
     public RobotContainer()
@@ -65,6 +83,6 @@ public class RobotContainer
     public Command getAutonomousCommand()
     {
         // An example command will be run in autonomous
-        return null;
+        return swerveAutoBuilder.fullAuto(trajectory).andThen(new AutoBalanceCommand(false));
     }
 }

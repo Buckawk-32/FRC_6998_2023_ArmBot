@@ -93,16 +93,12 @@ public class SwerveSubsystem extends SubsystemBase {
         NavX.reset();
     }
 
-    public void ResetPosition(Pose2d pose2d) {
+    public void ResetPose(Pose2d pose2d) {
         SWERVE_ODOMETRY.resetPosition(NavX.getRotation2d(), getModulePosition(), pose2d);
     }
 
     public Pose2d GetPose() {
         return SWERVE_ODOMETRY.getPoseMeters();
-    }
-
-    public SwerveDriveKinematics GetKinematics() {
-        return SWERVE_DRIVE_KINEMATICS;
     }
 
     public SwerveModulePosition[] getModulePosition() {

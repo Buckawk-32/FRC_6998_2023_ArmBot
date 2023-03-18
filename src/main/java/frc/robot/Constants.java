@@ -28,8 +28,8 @@ public final class Constants
 
     public static final Pose2d CHASSIS_INITIAL_POSE = new Pose2d(0, 0, Rotation2d.fromDegrees(0)); // TODO: Remember to use actual start pos
 
-
     public static final double CHASSIS_DRIVE_MOTOR_KS = 0.077618 / 12;
+
     public static final double CHASSIS_DRIVE_MOTOR_KV = 0.89851 / 12;
     public static final double CHASSIS_DRIVE_MOTOR_KA = 0.18239 / 12;
 
@@ -43,6 +43,17 @@ public final class Constants
     public static final double CHASSIS_ANGLE_MOTOR_SMART_MOTION_MAX_VELOCITY = 5760;
     public static final double CHASSIS_ANGLE_MOTOR_SMART_MOTION_MAX_ACCEL = 10000;
     public static final double CHASSIS_ANGLE_MOTOR_SMART_MOTION_ALLOWABLE_ERROR = 0.01;
+
+    // ---------------------------------------------------------------------
+
+    public static final double AUTO_BALANCE_KP = 0.08;
+    public static final double AUTO_BALANCE_KI = 0;
+    public static final double AUTO_BALANCE_KD = 0;
+    public static final double AUTO_BALANCE_START_SPEED_METERS_PER_SEC = -2;
+    public static final double AUTO_BALANCE_TOLERANCE = 2;
+    public static final double AUTO_BALANCE_WAIT_TIME = 2;
+
+    // ---------------------------------------------------------------------
 
     public static final double CHASSIS_FRONT_LEFT_ANGLE_OFFSET = 0.0;
     public static final double CHASSIS_BACK_LEFT_ANGLE_OFFSET = 0.0;
