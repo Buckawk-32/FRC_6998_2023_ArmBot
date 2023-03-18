@@ -18,9 +18,16 @@ public final class Constants
     public static final double CHASSIS_WHEEL_DIAMETER_METERS = Units.inchesToMeters(4.0);
 
     public static final double CHASSIS_ANGLE_GEAR_RATIO = 21.42;
+
+    public static final double CHASSIS_MAX_SPEED_METERS_PER_SEC = 8.0;
+    public static final double CHASSIS_MAX_ANGULAR_VELOCITY_RAD_PER_SEC = 6.0;
+    public static final double CHASSIS_MAX_ACCEL_METERS_PER_SEC = 5.0;
+    public static final boolean CHASSIS_ENABLE_FIELD_ORIENTABLE_CONTROL = true;
+    public static final double CHASSIS_DEADBAND_ZONE = 0.1;
     public static final SwerveSubsystem.GearRatio CHASSIS_DRIVE_GEAR_RATIO = SwerveSubsystem.GearRatio.L1;
 
     public static final Pose2d CHASSIS_INITIAL_POSE = new Pose2d(0, 0, Rotation2d.fromDegrees(0)); // TODO: Remember to use actual start pos
+
 
     public static final double CHASSIS_DRIVE_MOTOR_KS = 0.077618 / 12;
     public static final double CHASSIS_DRIVE_MOTOR_KV = 0.89851 / 12;

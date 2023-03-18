@@ -89,6 +89,10 @@ public class SwerveSubsystem extends SubsystemBase {
                 Constants.CHASSIS_INITIAL_POSE);
     }
 
+    public void ResetGyro() {
+        NavX.reset();
+    }
+
     public void ResetPosition(Pose2d pose2d) {
         SWERVE_ODOMETRY.resetPosition(NavX.getRotation2d(), getModulePosition(), pose2d);
     }

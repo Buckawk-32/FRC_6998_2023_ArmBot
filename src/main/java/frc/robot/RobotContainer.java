@@ -5,9 +5,14 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.commands.SwerveDriveCommand;
+import frc.robot.subsystems.SwerveSubsystem;
 
 
 /**
@@ -18,12 +23,19 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer
 {
-    // The robot's subsystems and commands are defined here...
 
-    
+    public final XboxController Driver_controller = new XboxController(0);
+    public final XboxController Operator_controller = new XboxController(1);
+
+    public SwerveSubsystem swerveSubsystem = SwerveSubsystem.getInstance();
+    // The robot's subsystems and commands are defined here...
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
     public RobotContainer()
     {
+        SwerveDriveCommand swerveDriveCommand = new SwerveDriveCommand(Driver_controller);
+
+        swerveSubsystem.setDefaultCommand(swerveDriveCommand);
+
         // Configure the trigger bindings
         configureBindings();
     }
@@ -41,7 +53,7 @@ public class RobotContainer
     private void configureBindings()
     {
         // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-
+        new JoystickButton(Driver_controller, XboxController.Button.kLeftBumper.value).onTrue(new InstantCommand(swerveSubsystem::ResetGyro));
     }
     
     
