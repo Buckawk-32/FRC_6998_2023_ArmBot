@@ -10,6 +10,7 @@ import com.pathplanner.lib.PathPlanner;
 import com.pathplanner.lib.PathPlannerTrajectory;
 import com.pathplanner.lib.auto.PIDConstants;
 import com.pathplanner.lib.auto.SwerveAutoBuilder;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -17,7 +18,9 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.AutoBalanceCommand;
+import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.SwerveDriveCommand;
+import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.SwerveSubsystem;
 
 
@@ -30,7 +33,12 @@ import frc.robot.subsystems.SwerveSubsystem;
 public class RobotContainer
 {
 
+    public final double spinrate = 0;
+
     public final XboxController Driver_controller = new XboxController(0);
+    public final XboxController Operator_Controller = new XboxController(1);
+
+    public ArmSubsystem armSubsystem = ArmSubsystem.getInstance();
 
     public SwerveSubsystem swerveSubsystem = SwerveSubsystem.getInstance();
 
@@ -54,6 +62,14 @@ public class RobotContainer
 
         swerveSubsystem.setDefaultCommand(swerveDriveCommand);
 
+        armSubsystem.setDefaultCommand(new IntakeCommand(
+                spinrate,
+                armSubsystem,
+                Operator_Controller
+        ));
+
+
+
         // Configure the trigger bindings
         configureBindings();
     }
@@ -72,6 +88,12 @@ public class RobotContainer
     {
         // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
         new JoystickButton(Driver_controller, XboxController.Button.kLeftBumper.value).onTrue(new InstantCommand(swerveSubsystem::ResetGyro));
+
+        new JoystickButton(Operator_Controller, XboxController.Button.kB.value).onTrue(new InstantCommand(armSubsystem::raiseArm));
+        new JoystickButton(Operator_Controller, XboxController.Button.kA.value).onTrue(new InstantCommand(armSubsystem::lowerArm));
+        new JoystickButton(Operator_Controller, XboxController.Button.kRightBumper.value).onTrue(new InstantCommand(armSubsystem::raiseBottomArm));
+        new JoystickButton(Operator_Controller, XboxController.Button.kLeftBumper.value).onTrue(new InstantCommand(armSubsystem::lowerBottomArm));
+        new JoystickButton(Operator_Controller, XboxController.Button.kStart.value).onTrue(new InstantCommand(armSubsystem::zeroBottomArm));
     }
     
     

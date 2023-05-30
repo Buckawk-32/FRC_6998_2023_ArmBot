@@ -6,6 +6,7 @@
 
 package frc.robot;
 
+import com.revrobotics.CANSparkMax;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.util.Units;
@@ -75,4 +76,53 @@ public final class Constants
     public static final int CHASSIS_FRONT_RIGHT_DRIVE_MOTOR_ID = 4;
     public static final int CHASSIS_FRONT_RIGHT_ANGLE_MOTOR_ID = 4;
     public static final int CHASSIS_FRONT_RIGHT_CANCODER_ID = 4;
+
+    // ---------------------------------------------------------------------
+
+    public static final int ARM_TOP_MOTOR_ID = 6;
+    public static final double ARM_TOP_ENCODER_OFFSET = 105;
+    public static final double ARM_TOP_KF = 0.0028;
+    public static final double ARM_TOP_KP = 0.007;
+    public static final double ARM_TOP_MAX_ALLOWABLE_ERROR_DEG = 2;
+    public static final double ARM_TOP_MAX_VELOCITY_DEG_PER_SEC = 90;
+    public static final double ARM_TOP_MAX_ACCELERATION_DEG_PER_SQ = 90;
+
+    // ---------------------------------------------------------------------
+
+    public static final int ARM_BOTTOM_MOTOR_ID = 5;
+    public static final double ARM_BOTTOM_ENCODER_OFFSET = 319.3 + 27;
+    public static final double ARM_BOTTOM_KF = 0.0029077;
+    public static final double ARM_BOTTOM_KP = 0.0034906;
+    public static final double ARM_BOTTOM_MAX_ALLOWABLE_ERROR_DEG = 2;
+    public static final double ARM_BOTTOM_MAX_VELOCITY_DEG_PER_SEC = 90;
+    public static final double ARM_BOTTOM_MAX_ACCELERATION_DEG_PER_SQ = 90;
+
+    // ---------------------------------------------------------------------
+
+    public static final double ARM_TOP_GEARING = 80;
+    public static final double ARM_BOTTOM_GEARING = 100 * 2;
+
+    // ---------------------------------------------------------------------
+
+    public static final int ARM_INTAKE_ROTATOR_MOTOR_ID = 7;
+    public static final int ARM_INTAKE_ROTATOR_MOTOR_CURRENTLIMIT = 0;
+    public static final double INTAKE_ROTATION_MOTOR_VOLTAGE_COMPENSATION = 0.0;
+    public static final CANSparkMax.IdleMode INTAKE_ROTATION_MOTOR_IDLEMODE = CANSparkMax.IdleMode.kBrake
+    public static final double INTAKE_ROTATOR_MOTOR_KP = 0.0;
+    public static final double INTAKE_ROTATOR_MOTOR_KI = 0.0;
+    public static final double INTAKE_ROTATOR_MOTOR_KD = 0.0;
+    public static final double INTAKE_ROTATOR_MOTOR_KF = 0.0;
+    public static final double INTAKE_ROTATOR_DEADBAND = 0.05;
+
+    // ---------------------------------------------------------------------
+
+    public static final int ARM_INTAKE_SPIN_MOTOR_ID = 8;
+    public static final int ARM_INTAKE_SPIN_MOTOR_CURRENTLIMIT = 0;
+    public static final double INTAKE_SPIN_MOTOR_VOLTAGE_COMPENSATION = 0.0;
+    public static final CANSparkMax.IdleMode INTAKE_SPIN_MOTOR_IDLEMODE = CANSparkMax.IdleMode.kBrake;
+    public static final double INTAKE_SPIN_MOTOR_KP = 0.0;
+    public static final double INTAKE_SPIN_MOTOR_KI = 0.0;
+    public static final double INTAKE_SPIN_MOTOR_KD = 0.0;
+    public static final double INTAKE_SPIN_MOTOR_KF = 0.0;
+
 }
