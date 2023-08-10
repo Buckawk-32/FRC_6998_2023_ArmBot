@@ -107,7 +107,7 @@ public final class Constants
     public static final int ARM_INTAKE_ROTATOR_MOTOR_ID = 7;
     public static final int ARM_INTAKE_ROTATOR_MOTOR_CURRENTLIMIT = 0;
     public static final double INTAKE_ROTATION_MOTOR_VOLTAGE_COMPENSATION = 0.0;
-    public static final CANSparkMax.IdleMode INTAKE_ROTATION_MOTOR_IDLEMODE = CANSparkMax.IdleMode.kBrake
+    public static final CANSparkMax.IdleMode INTAKE_ROTATION_MOTOR_IDLEMODE = CANSparkMax.IdleMode.kBrake;
     public static final double INTAKE_ROTATOR_MOTOR_KP = 0.0;
     public static final double INTAKE_ROTATOR_MOTOR_KI = 0.0;
     public static final double INTAKE_ROTATOR_MOTOR_KD = 0.0;

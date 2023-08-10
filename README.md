@@ -2,7 +2,7 @@
 This is the robot code for the robot arm that will be showcased in June 10th in Tainan City Hall, by FRC 6998 team
 
 ## Description
-This is the code for the Robot that will be featured in June 10th
+This is the code for the side robot that our frc team had built. It uses the swerve base from our senior, and I added the arm functionality.
 
 ### Parts
 1. Swerve Subsystem
@@ -13,6 +13,9 @@ This is the code for the Robot that will be featured in June 10th
      - The fore arm is controlled by a 80 : 1 gear ratio with a Neo
    - The Intake
      - It is a rotating intake with a belt that takes in cubes and cones
+
+## News
+Sadly the mostly likely won;t be tested, as the robot is under maintanice in the FRC team and the robot has been recycled
 
 ## Author
 Rookie: Nethika Jayith Rajapakse
