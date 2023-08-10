@@ -75,12 +75,6 @@ public class SwerveSubsystem extends SubsystemBase {
                     Constants.CHASSIS_FRONT_RIGHT_ANGLE_OFFSET),
     };
 
-
-    public SwerveDrivePoseEstimator swerveDrivePoseEstimator = new SwerveDrivePoseEstimator(
-
-    )
-
-
     public final AHRS NavX = new AHRS(SPI.Port.kMXP);
 
     public SwerveDriveOdometry SWERVE_ODOMETRY;
