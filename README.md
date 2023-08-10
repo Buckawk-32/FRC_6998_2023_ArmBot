@@ -15,7 +15,7 @@ This is the code for the side robot that our frc team had built. It uses the swe
      - It is a rotating intake with a belt that takes in cubes and cones
 
 ## News
-Sadly the mostly likely won;t be tested, as the robot is under maintanice in the FRC team and the robot has been recycled
+Sadly the mostly likely won't be tested, as the robot is under maintanice in the FRC team and the robot has been recycled
 
 ## Author
 Rookie: Nethika Jayith Rajapakse
